@@ -7,3 +7,6 @@ it("imports from ./register.tsx to start addon bootstrap", () => {
   require("./index");
   expect(mockRegister.mock.calls).toHaveLength(1);
 });
+
+// Have TypeScript recognize this file as a module
+export default "";

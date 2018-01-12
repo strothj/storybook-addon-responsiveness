@@ -5,4 +5,8 @@ jobs:
       - image: circleci/node:8.9
     steps:
       - checkout
-      - run: echo "Place holder"
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build
+      - run: yarn storybook:build
