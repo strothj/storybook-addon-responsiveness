@@ -10,6 +10,7 @@ Storybook Responsiveness Addon allows you to preview components using various vi
 
 ### Requirements
 * Storybook 3.2
+* React 16 (for Storybook components)
 
 ## Usage
 

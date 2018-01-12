@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addon registration adds panel 1`] = `
+Array [
+  "strothj/storybook-addon-responsiveness/panel",
+  Object {
+    "render": [Function],
+    "title": "Responsiveness",
+  },
+]
+`;
+
+exports[`addon registration adds panel 2`] = `"function () {return React.createElement(Manager_1.default, { storybookChannel: addons_1.default.getChannel(), storybookAPI: api });}"`;
+
+exports[`addon registration registers addon with name 1`] = `"strothj/storybook-addon-responsiveness"`;

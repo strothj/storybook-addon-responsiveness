@@ -2,9 +2,55 @@
   "name": "storybook-addon-responsiveness",
   "version": "1.0.0",
   "description": "Storybook addon to preview components using various viewport sizes",
-  "main": "dist/register.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/strothj/storybook-addon-responsiveness.git",
   "author": "strothj <https://github.com/strothj>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "engines": {
+    "node": ">= 8.9",
+    "yarn": ">= 1.2.1"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm-run-all clean build:tsc",
+    "build:tsc": "tsc",
+    "lint": "tslint -p ./",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "jest --config jest.config.js"
+  },
+  "devDependencies": {
+    "@storybook/addons": "^3.3",
+    "@storybook/react": "^3.3.8",
+    "@types/jest": "^22.0.1",
+    "@types/node": "^9.3.0",
+    "@types/react": "^16.0.34",
+    "@types/storybook__react": "^3.0.6",
+    "babel-core": "^6.26.0",
+    "jest": "^22.0.6",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.10.2",
+    "react": "16.0.0",
+    "react-dom": "16.0.0",
+    "request": "2.34",
+    "request-promise-native": "^1.0.5",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.1",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.9.1",
+    "tslint-config-airbnb": "^5.4.2",
+    "tslint-config-prettier": "^1.6.0",
+    "tslint-language-service": "^0.9.8",
+    "tslint-plugin-prettier": "^1.3.0",
+    "typescript": "^2.6.2"
+  },
+  "peerDependencies": {
+    "@storybook/addons": ">=3.3",
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.26.0"
+  }
 }
