@@ -1,0 +1,10 @@
+{
+  "name": "storybook-addon-responsiveness",
+  "version": "1.0.0",
+  "description": "Storybook addon to preview components using various viewport sizes",
+  "main": "dist/register.js",
+  "repository": "https://github.com/strothj/storybook-addon-responsiveness.git",
+  "author": "strothj <https://github.com/strothj>",
+  "license": "MIT",
+  "private": false
+}
