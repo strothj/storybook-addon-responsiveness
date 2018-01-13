@@ -3,6 +3,7 @@
   "rulesDirectory": ["tslint-plugin-prettier"],
   "rules": {
     "variable-name": false,
+    "import-name": false,
     "prettier": true
   }
 }

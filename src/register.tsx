@@ -1,5 +1,5 @@
 import * as React from "react";
-import addons from "@storybook/addons";
+import addons from "./addons";
 import { addonName, addonPanelName, addonTitle } from "./constants";
 import Manager from "./Manager";
 

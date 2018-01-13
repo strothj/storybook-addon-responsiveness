@@ -1,5 +1,5 @@
 import * as React from "react";
-import { StorybookChannel, StorybookAPI } from "@storybook/addons";
+import { StorybookChannel, StorybookAPI } from "./addons";
 
 export interface ManagerProps {
   storybookChannel: StorybookChannel;
