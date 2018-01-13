@@ -1,7 +1,7 @@
 import * as React from "react";
 import addons from "./addons";
 import { addonName, addonPanelName, addonTitle } from "./constants";
-import Manager from "./Manager";
+import Manager from "./components/Manager";
 
 let registered = false;
 
