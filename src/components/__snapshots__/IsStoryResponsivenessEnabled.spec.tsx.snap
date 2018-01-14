@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`calls render with false before stories are registered 1`] = `
+<div>
+  Child Component
+</div>
+`;
+
+exports[`calls render with false before stories are registered 2`] = `
+Array [
+  Array [
+    false,
+  ],
+]
+`;

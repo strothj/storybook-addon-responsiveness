@@ -1,13 +1,13 @@
 import * as React from "react";
 import StorybookApiProps from "./StorybookApiProps";
-import IsResponsivenessEnabled from "./IsResponsivenessEnabled";
+import IsStoryResponsivenessEnabled from "./IsStoryResponsivenessEnabled";
 
 export interface ManagerProps extends StorybookApiProps {}
 
 class Manager extends React.Component<ManagerProps, {}> {
   render() {
     return (
-      <IsResponsivenessEnabled
+      <IsStoryResponsivenessEnabled
         {...this.props}
         render={(isisResponsivenessEnabled: boolean) => {
           return (

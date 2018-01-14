@@ -4,20 +4,20 @@ import { eventEnableStoryResponsiveness } from "../constants";
 import EnabledStoriesRegistry from "./EnabledStoriesRegistry";
 import StorybookApiProps from "./StorybookApiProps";
 
-export interface IsResponsivenessEnabledProps extends StorybookApiProps {
+export interface IsStoryResponsivenessEnabledProps extends StorybookApiProps {
   render: (isResponsivenessEnabled: boolean) => Renderable;
 }
 
-export interface IsResponsivenessEnabledState {
+export interface IsStoryResponsivenessEnabledState {
   currentStoryKind: string | null;
   currentStory: string | null;
 }
 
-class IsResponsivenessEnabled extends React.Component<
-  IsResponsivenessEnabledProps,
-  IsResponsivenessEnabledState
+class IsStoryResponsivenessEnabled extends React.Component<
+  IsStoryResponsivenessEnabledProps,
+  IsStoryResponsivenessEnabledState
 > {
-  state: IsResponsivenessEnabledState = {
+  state: IsStoryResponsivenessEnabledState = {
     currentStoryKind: null,
     currentStory: null,
   };
@@ -60,4 +60,4 @@ class IsResponsivenessEnabled extends React.Component<
   }
 }
 
-export default IsResponsivenessEnabled;
+export default IsStoryResponsivenessEnabled;
