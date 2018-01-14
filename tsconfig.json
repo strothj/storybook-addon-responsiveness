@@ -22,8 +22,8 @@
     ]
   },
   "exclude": [
+    "**/*.spec.*",
     "./example",
-    "**/*.spec.ts",
     "./tools"
   ]
 }
