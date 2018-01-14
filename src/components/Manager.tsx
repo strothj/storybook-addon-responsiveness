@@ -1,14 +1,21 @@
 import * as React from "react";
-import { StorybookChannel, StorybookAPI } from "../addons";
+import StorybookApiProps from "./StorybookApiProps";
+import IsResponsivenessEnabled from "./IsResponsivenessEnabled";
 
-export interface ManagerProps {
-  storybookChannel: StorybookChannel;
-  storybookAPI: StorybookAPI;
-}
+export interface ManagerProps extends StorybookApiProps {}
 
 class Manager extends React.Component<ManagerProps, {}> {
   render() {
-    return <div>Place holder</div>;
+    return (
+      <IsResponsivenessEnabled
+        {...this.props}
+        render={(isisResponsivenessEnabled: boolean) => {
+          return (
+            <div>Manager, enabled: {isisResponsivenessEnabled.toString()}</div>
+          );
+        }}
+      />
+    );
   }
 }
 

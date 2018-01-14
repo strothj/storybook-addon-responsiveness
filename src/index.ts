@@ -1,3 +1,1 @@
-import { register } from "./register";
-
-register();
+export { register } from "./register";

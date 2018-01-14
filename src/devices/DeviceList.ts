@@ -12,15 +12,15 @@ interface DeviceList {
           width: number;
           height: number;
         };
-        "device-pixel-ratio": number;
+        // "device-pixel-ratio": number;
         vertical: {
           width: number;
           height: number;
         };
       };
-      capabilities: ("touch" | "mobile")[];
-      "user-agent": string;
-      type: "phone" | "tablet" | "notebook";
+      // capabilities: ("touch" | "mobile")[];
+      // "user-agent": string;
+      // type: "phone" | "tablet" | "notebook";
     };
   }[];
 }

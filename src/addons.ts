@@ -9,9 +9,9 @@ import addonsMod from "@storybook/addons";
 const addons = addonsMod as AddonAPI;
 
 export interface StorybookChannel {
-  on: (eventName: string, handler: () => any) => any;
+  on: (eventName: string, handler: (event?: any) => any) => any;
   removeListener: (eventName: string, handler: () => any) => any;
-  emit: (eventName: string, data: any) => any;
+  emit: (eventName: string, data?: any) => any;
 }
 
 export interface QueryParams {
@@ -22,6 +22,8 @@ export interface StorybookAPI {
   setQueryParams: (queryParams: QueryParams) => any;
 
   getQueryParam: (param: string) => string | undefined;
+
+  onStory: (handler: (kind: string, story: string) => any) => any;
 }
 
 export type GetChannel = () => StorybookChannel;
