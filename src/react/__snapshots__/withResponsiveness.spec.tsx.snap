@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`emits event with story kind and name 1`] = `
+Array [
+  Array [
+    "strothj/storybook-addon-responsiveness/enable_story_responsiveness",
+    Object {
+      "kind": "kind",
+      "story": "story",
+    },
+  ],
+]
+`;
+
+exports[`renders component 1`] = `
+<div>
+  Component
+</div>
+`;
