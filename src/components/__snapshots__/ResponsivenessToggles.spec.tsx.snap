@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders child component from render function 1`] = `
+<div>
+  Child Component
+</div>
+`;
