@@ -15,8 +15,8 @@
   "scripts": {
     "clean": "rimraf dist storybook",
     "build": "npm-run-all clean build:tsc",
-    "build:tsc": "tsc",
-    "device-list:update": "ts-node --P tsconfig.tools.json tools/update-device-list.ts",
+    "build:tsc": "tsc -p ./tsconfig.build.json",
+    "device-list:update": "ts-node tools/update-device-list.ts",
     "lint": "tslint -p ./",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "storybook:build": "build-storybook -c .storybook -o storybook",
