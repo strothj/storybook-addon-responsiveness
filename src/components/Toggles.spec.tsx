@@ -3,10 +3,7 @@ import * as renderer from "react-test-renderer";
 import { getSettings } from "../settings";
 import * as constants from "../constants";
 
-import ResponsivenessToggles, {
-  ResponsivenessTogglesProps,
-  ResponsivenessTogglesApi,
-} from "./ResponsivenessToggles";
+import Toggles, { TogglesProps, TogglesApi } from "./Toggles";
 
 // ../__mocks__/settings.ts
 jest.mock("../settings");
@@ -17,7 +14,7 @@ const mockProps = {
   render: jest.fn(() => <div>Child Component</div>),
 };
 
-const props = mockProps as ResponsivenessTogglesProps;
+const props = mockProps as TogglesProps;
 
 beforeEach(() => {
   require("../settings").__mockReset();
@@ -27,20 +24,22 @@ beforeEach(() => {
 });
 
 it("renders child component from render function", () => {
-  const component = renderer.create(<ResponsivenessToggles {...props} />);
+  const component = renderer.create(<Toggles {...props} />);
   expect(component.toJSON()).toMatchSnapshot();
 });
 
 it("uses defaults from settings", () => {
   const defaultSettings = getSettings();
-  renderer.create(<ResponsivenessToggles {...props} />).toJSON();
+  renderer.create(<Toggles {...props} />).toJSON();
 
   // render() { return this.props.render(api); }
-  const api = mockProps.render.mock.calls[0][0] as ResponsivenessTogglesApi;
+  const api = mockProps.render.mock.calls[0][0] as TogglesApi;
 
   expect(api.isEnabled).toBe(defaultSettings.startEnabled);
   expect(api.selectedDevice).toBe(defaultSettings.startingDeviceTitle);
   expect(api.orientation).toBe("vertical");
+
+  expect(api.deviceList).toEqual(["Device Title"]);
 });
 
 it("overrides defaults using query parameters", () => {
@@ -57,14 +56,14 @@ it("overrides defaults using query parameters", () => {
     }
   });
 
-  renderer.create(<ResponsivenessToggles {...props} />).toJSON();
-  const api = mockProps.render.mock.calls[0][0] as ResponsivenessTogglesApi;
+  renderer.create(<Toggles {...props} />).toJSON();
+  const api = mockProps.render.mock.calls[0][0] as TogglesApi;
 
   expect(api.isEnabled).toBe(false);
 });
 
 it("sets query parameters on mount", () => {
-  renderer.create(<ResponsivenessToggles {...props} />).toJSON();
+  renderer.create(<Toggles {...props} />).toJSON();
 
   // private setQueryParams = () => { this.props.setQueryParams(...); };
   const queryParams = mockProps.setQueryParams.mock.calls[0][0];
@@ -80,9 +79,9 @@ it("updates toggles through api", () => {
     mockProps.setQueryParams.mock.calls[
       mockProps.setQueryParams.mock.calls.length - 1
     ][0];
-  let api: ResponsivenessTogglesApi;
+  let api: TogglesApi;
 
-  const component = renderer.create(<ResponsivenessToggles {...props} />);
+  const component = renderer.create(<Toggles {...props} />);
   component.toJSON();
 
   // Expect query parameters to have been updated as well.

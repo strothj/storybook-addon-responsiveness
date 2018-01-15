@@ -4,34 +4,36 @@ import { StorybookAPI } from "../addons";
 import { getSettings, Settings } from "../settings";
 import * as constants from "../constants";
 
-export interface ResponsivenessTogglesProps {
+export interface TogglesProps {
   getQueryParam: StorybookAPI["getQueryParam"];
   setQueryParams: StorybookAPI["setQueryParams"];
-  render: (api: ResponsivenessTogglesApi) => Renderable;
+  render: (api: TogglesApi) => Renderable;
 }
 
-export interface ResponsivenessTogglesState {
+export interface TogglesState {
   isEnabled: boolean;
   selectedDevice: string;
   orientation: "vertical" | "horizontal";
 }
 
-export interface ResponsivenessTogglesApi extends ResponsivenessTogglesState {
+export interface TogglesApi extends TogglesState {
+  deviceList: string[];
   setIsEnabled: (isEnabled: boolean) => any;
   setSelectedDevice: (device: string) => any;
   setOrientation: (orientation: "vertical" | "horizontal") => any;
 }
 
-class ResponsivenessToggles extends React.Component<
-  ResponsivenessTogglesProps,
-  ResponsivenessTogglesState
-> {
+class Toggles extends React.Component<TogglesProps, TogglesState> {
   private settings: Settings;
+  private deviceList: string[];
 
-  constructor(props: ResponsivenessTogglesProps) {
+  constructor(props: TogglesProps) {
     super(props);
 
     this.settings = getSettings();
+    this.deviceList = this.settings.deviceList.extensions
+      .filter(d => d.device["show-by-default"])
+      .map(d => d.device.title);
 
     // Read state from query parameters to preserve state between page refreshes
     const isEnabled = props.getQueryParam(constants.queryEnabled);
@@ -68,32 +70,36 @@ class ResponsivenessToggles extends React.Component<
   };
 
   private handleSetIsEnabled = (isEnabled: boolean) => {
-    this.setState({ isEnabled });
-    this.setQueryParams();
+    this.setState({ isEnabled }, () => {
+      this.setQueryParams();
+    });
   };
 
   private handleSetSelectedDevice = (selectedDevice: string) => {
-    this.setState({ selectedDevice });
-    this.setQueryParams();
+    this.setState({ selectedDevice }, () => {
+      this.setQueryParams();
+    });
   };
 
   private handleSetOrientation = (orientation: "vertical" | "horizontal") => {
-    this.setState({ orientation });
-    this.setQueryParams();
+    this.setState({ orientation }, () => {
+      this.setQueryParams();
+    });
   };
 
   render() {
-    const api: ResponsivenessTogglesApi = {
+    const api: TogglesApi = {
       isEnabled: this.state.isEnabled,
       selectedDevice: this.state.selectedDevice,
       orientation: this.state.orientation,
       setIsEnabled: this.handleSetIsEnabled,
       setSelectedDevice: this.handleSetSelectedDevice,
       setOrientation: this.handleSetOrientation,
+      deviceList: this.deviceList,
     };
 
     return this.props.render(api);
   }
 }
 
-export default ResponsivenessToggles;
+export default Toggles;

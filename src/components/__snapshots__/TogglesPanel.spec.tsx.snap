@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders toggle switches 1`] = `
+<div
+  className="f252qlb"
+>
+  <div>
+    Enable
+  </div>
+  <div>
+    <input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </div>
+  <div>
+    Device
+  </div>
+  <div>
+    <select
+      onChange={[Function]}
+      value="iPhone 5/SE"
+    >
+      <option
+        value="iPhone 5/SE"
+      >
+        iPhone 5/SE
+      </option>
+    </select>
+  </div>
+  <div>
+    Vertical
+  </div>
+  <div>
+    <input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+  </div>
+</div>
+`;

@@ -1,6 +1,8 @@
 import * as React from "react";
 import StorybookApiProps from "./StorybookApiProps";
 import IsStoryResponsivenessEnabled from "./IsStoryResponsivenessEnabled";
+import Toggles from "./Toggles";
+import TogglesPanel from "./TogglesPanel";
 
 export interface ManagerProps extends StorybookApiProps {}
 
@@ -9,11 +11,13 @@ class Manager extends React.Component<ManagerProps, {}> {
     return (
       <IsStoryResponsivenessEnabled
         {...this.props}
-        render={(isisResponsivenessEnabled: boolean) => {
-          return (
-            <div>Manager, enabled: {isisResponsivenessEnabled.toString()}</div>
-          );
-        }}
+        render={(_isisResponsivenessEnabled: boolean) => (
+          <Toggles
+            getQueryParam={this.props.storybookAPI.getQueryParam}
+            setQueryParams={this.props.storybookAPI.setQueryParams}
+            render={togglesApi => <TogglesPanel {...togglesApi} />}
+          />
+        )}
       />
     );
   }
