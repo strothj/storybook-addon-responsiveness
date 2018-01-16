@@ -24,6 +24,16 @@ const defaultSettings: Settings = {
           },
         },
       },
+      {
+        device: {
+          "show-by-default": false,
+          title: "Another Device",
+          screen: {
+            horizontal: { width: 100, height: 200 },
+            vertical: { width: 200, height: 100 },
+          },
+        },
+      },
     ],
   },
   startingDeviceTitle: "Device Title",

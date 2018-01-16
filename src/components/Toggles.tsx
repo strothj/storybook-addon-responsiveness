@@ -18,6 +18,8 @@ export interface TogglesState {
 
 export interface TogglesApi extends TogglesState {
   deviceList: string[];
+  width: number;
+  height: number;
   setIsEnabled: (isEnabled: boolean) => any;
   setSelectedDevice: (device: string) => any;
   setOrientation: (orientation: "vertical" | "horizontal") => any;
@@ -88,7 +90,15 @@ class Toggles extends React.Component<TogglesProps, TogglesState> {
   };
 
   render() {
+    const device = this.settings.deviceList.extensions.find(
+      d => d.device.title === this.state.selectedDevice,
+    )!;
+    const screen = device.device.screen[this.state.orientation];
+    const { width, height } = screen;
+
     const api: TogglesApi = {
+      width,
+      height,
       isEnabled: this.state.isEnabled,
       selectedDevice: this.state.selectedDevice,
       orientation: this.state.orientation,

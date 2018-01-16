@@ -5,3 +5,7 @@ export const fontStyle = {
   fontSize: 11,
   letterSpacing: 1,
 };
+
+export const boxShadow = {
+  boxShadow: "0px 0px 5px 1px rgba(112, 112, 112, 1)",
+};

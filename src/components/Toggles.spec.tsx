@@ -48,7 +48,7 @@ it("overrides defaults using query parameters", () => {
       case constants.queryEnabled:
         return "0";
       case constants.queryDevice:
-        return "Other Device Title";
+        return "Another Device";
       case constants.queryOrientation:
         return "horizontal";
       default:

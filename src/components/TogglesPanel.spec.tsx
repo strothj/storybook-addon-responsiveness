@@ -14,6 +14,8 @@ it("renders toggle switches", () => {
       setIsEnabled={jest.fn()}
       setOrientation={jest.fn()}
       setSelectedDevice={jest.fn()}
+      width={0}
+      height={0}
     />,
   );
 
