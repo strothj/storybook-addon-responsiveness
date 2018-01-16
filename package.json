@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-responsiveness",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Storybook addon to preview components using various viewport sizes",
   "main": "index.js",
   "types": "index.d.ts",
@@ -14,9 +14,10 @@
   },
   "scripts": {
     "clean": "rimraf dist storybook",
-    "build": "npm-run-all clean build:tsc build:cpx",
+    "build": "npm-run-all clean build:tsc build:cpx:*",
     "build:tsc": "tsc -p ./tsconfig.build.json",
-    "build:cpx": "cpx package.json dist",
+    "build:cpx:package-json": "cpx package.json dist",
+    "build:cpx:readme": "cpx README.md dist",
     "device-list:update": "ts-node tools/update-device-list.ts",
     "lint": "tslint -p ./",
     "storybook": "start-storybook -p 9001 -c .storybook",
